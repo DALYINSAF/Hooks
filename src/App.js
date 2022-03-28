@@ -16,7 +16,7 @@ function App() {
   const handelserch = (searchedmovie) => {
     setSearch(searchedmovie);
   };
-  const [rate, setRating] = useState(0); 
+  const [rating, setRating] = useState(0); 
 
   
   const handleRating = (rate) => {
@@ -30,16 +30,16 @@ function App() {
       <SearchMovie
         searchp={search}
         handelserchp={handelserch}
-        searchrate={rate}
+        searchrate={rating}
         handelserchrate={handleRating}
       />
       <AddMovie handeladd={handeladd} />
-      <MovieList movies={films} />
-      moviesprops={films.filter(
+      <MovieList 
+      movies={films.filter(
           (film) =>
             film.title.toLowerCase().includes(search.toLowerCase()) &&
-            film.rating >= rate
-        )}
+            film.rate>= rating
+        )}/>
       
     </div>
   );
